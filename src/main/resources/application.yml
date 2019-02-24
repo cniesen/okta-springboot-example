@@ -1,0 +1,10 @@
+okta:
+  oauth2:
+    issuer: https://dev-??????.oktapreview.com/oauth2/default
+    client-id:
+    client-secret:
+
+app:
+  roles:
+    adminRoleName: OIDC Sample App Admin
+    userRoleName: OIDC Sample App User
