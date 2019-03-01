@@ -1,3 +1,10 @@
+Branch Disclaimer
+=================
+This branch is keept since it's liked to a github discussion at
+https://github.com/okta/okta-spring-boot/issues/117
+Otherwise look at the other branches.
+__________________________________________________________________________________________________________
+
 Okta OpenId Connect SpringBoot Application with okta-spring-boot-starter
 ========================================================================
 This implementation uses the okta-spring-boot-starter (https://github.com/okta/okta-spring-boot) dependency.
