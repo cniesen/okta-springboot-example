@@ -1,6 +1,7 @@
 package com.niesens.oktasample.controller;
 
 import com.niesens.oktasample.config.RoleConfig;
+import com.niesens.oktasample.utils.PrincipalUtils;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -21,19 +22,19 @@ public class MainController {
         if (principal == null) {
             return "Public - not authenticated";
         } else {
-            return "Public - authenticated as " + principal.getName();
+            return "Public - authenticated as " + PrincipalUtils.getPreferredUsername(principal);
         }
     }
 
     @RequestMapping("/user")
     @PreAuthorize("hasAuthority(@roleConfig.getUserRoleName())")
     public String user(Principal principal) {
-        return "User - authenticated as " + principal.getName();
+        return "User - authenticated as " + PrincipalUtils.getPreferredUsername(principal);
     }
 
     @RequestMapping("/admin")
     public String admin(Principal principal) {
-        return "Administrator - authenticated as " + principal.getName();
+        return "Administrator - authenticated as " + PrincipalUtils.getPreferredUsername(principal);
     }
 
 }
