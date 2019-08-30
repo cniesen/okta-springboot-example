@@ -9,7 +9,7 @@ import javax.validation.constraints.NotEmpty;
 
 @ConfigurationProperties("app.roles")
 @Validated
-@Component("roleConfig")
+@Component
 public class RoleConfig {
 
     @NotEmpty
