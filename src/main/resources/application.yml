@@ -1,0 +1,32 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          okta:
+            client-id: ${okta.client-id}
+            client-secret: ${okta.client-secret}
+            accessTokenUri: ${okta.host}/oauth2/v1/token
+            userAuthorizationUri: ${okta.host}/oauth2/v1/authorize#
+            clientAuthenticationScheme: form
+            scope: openid, email, profile, groups
+            authorizationGrantType: authorization_code
+            redirectUri: "{baseUrl}/login/oauth2/code/okta"
+
+        provider:
+          okta:
+            authorization-uri: ${okta.host}/oauth2/v1/authorize
+            token-uri: ${okta.host}/oauth2/v1/token
+            user-info-uri: ${okta.host}/oauth2/v1/userinfo
+            user-name-attribute: sub
+            jwk-set-uri: ${okta.host}/oauth2/v1/keys
+
+auth:
+  roleGroupMapping:
+    PRIVILEGED: OIDC Sample App Privileged User
+    ADMIN: OIDC Sample App Admin
+okta:
+  host: "https://dev-######.oktapreview.com:"
+  client-id: ########
+  client-secret: ########
+
